@@ -8,10 +8,10 @@ output: html_document
 require(plyr)
 
 
-# Load data: Temporarily using the local file until completion
+# Load data
 # US Births in 1969 - 1988 
-#csv_url <- "https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv"
-csv_url <- "Birthdays.csv"
+csv_url <- "https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv"
+
 birthday_data <- read.table(file = csv_url, header = TRUE, sep = ",")
 head(birthday_data, 5)
 ```
@@ -68,8 +68,12 @@ The births attribute varied widely from the original data set. The original had 
 <br>
 5. For at least 3 values in a column please rename so that every value in that column is renamed. For example, suppose I have 20 values of the letter “e” in one column. Rename those values so that all 20 would show as “excellent”.
 
-```{r}
+The following code replaces `NY` with `New York` and prints out the first ten rows.
 
+```{r}
+subset_birthdays$STATE <- gsub("NY", "New York", subset_birthdays$STATE)
+
+head(subset_birthdays, 10)
 ```
 
 
