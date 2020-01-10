@@ -2,12 +2,13 @@
 title: "Week 2 Assignment"
 author: "Sung Lee"
 date: "1/9/2020"
-output: html_document
+output: 
+  html_document: 
+    df_print: paged
 ---
-<img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/header_logo.png" />
-<br>
 
-<br>
+
+
 [Week 2 Assignment on RPubs](http://rpubs.com/logicalschema/winter_week2 "Sung's Week 2 Assignment Rpubs")
 <br>
 [Rmd on Github](https://github.com/logicalschema/r_winter_projects/blob/master/week2.Rmd "Sung's week 2 Assignment Github")
@@ -78,12 +79,12 @@ The births attribute varied widely from the original data set. The original had 
 <br>
 5. For at least 3 values in a column please rename so that every value in that column is renamed. For example, suppose I have 20 values of the letter “e” in one column. Rename those values so that all 20 would show as “excellent”.
 
-The following code replaces `NY` with `New York` and prints out the first ten rows.
+The following code replaces `NY` with `New York` and prints out the first hundred rows.
 
 ```{r}
 subset_birthdays$STATE <- gsub("NY", "New York", subset_birthdays$STATE)
 
-head(subset_birthdays, 10)
+head(subset_birthdays, 100)
 ```
 
 
