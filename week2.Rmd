@@ -7,12 +7,14 @@ output: html_document
 ``` {r}
 require(plyr)
 
-
 # Load data
 # US Births in 1969 - 1988 
-csv_url <- "https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv"
 
-birthday_data <- read.table(file = csv_url, header = TRUE, sep = ",")
+z_file <- gzcon(url("https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv.gz"))
+raw_csv <- textConnection(readLines(z_file))
+close(z_file)
+
+birthday_data <- read.table(raw_csv, header = TRUE, sep = ",")
 head(birthday_data, 5)
 ```
 <br>
@@ -84,8 +86,11 @@ head(subset_birthdays, 10)
 <br>
 7. BONUS – place the original .csv in a github file and have R read from the link. This will be a very useful skill as you progress in your data science education and career.
 
+The following code block implements the task. I zipped the csv file to make transport quicker.
 ```{r eval=FALSE}
-csv_url <- "https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv"
-csv_url <- "Birthdays.csv"
-birthday_data <- read.table(file = csv_url, header = TRUE, sep = ",")
+z_file <- gzcon(url("https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv.gz"))
+raw_csv <- textConnection(readLines(z_file))
+close(z_file)
+
+birthday_data <- read.table(raw_csv, header = TRUE, sep = ",")
 ```

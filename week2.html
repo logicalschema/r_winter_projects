@@ -373,9 +373,12 @@ summary {
 <pre><code>## Loading required package: plyr</code></pre>
 <pre class="r"><code># Load data
 # US Births in 1969 - 1988 
-csv_url &lt;- &quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv&quot;
 
-birthday_data &lt;- read.table(file = csv_url, header = TRUE, sep = &quot;,&quot;)
+z_file &lt;- gzcon(url(&quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv.gz&quot;))
+raw_csv &lt;- textConnection(readLines(z_file))
+close(z_file)
+
+birthday_data &lt;- read.table(raw_csv, header = TRUE, sep = &quot;,&quot;)
 head(birthday_data, 5)</code></pre>
 <pre><code>##   X state year month day       date wday births
 ## 1 1    AK 1969     1   1 1969-01-01  Wed     14
@@ -474,9 +477,12 @@ head(subset_birthdays, 10)</code></pre>
 ## 224336 New York 1981 1    608</code></pre>
 <p><br> 6. Display enough rows to see examples of all of steps 1-5 above.</p>
 <p><br> 7. BONUS – place the original .csv in a github file and have R read from the link. This will be a very useful skill as you progress in your data science education and career.</p>
-<pre class="r"><code>csv_url &lt;- &quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv&quot;
-csv_url &lt;- &quot;Birthdays.csv&quot;
-birthday_data &lt;- read.table(file = csv_url, header = TRUE, sep = &quot;,&quot;)</code></pre>
+<p>The following code block implements the task. I zipped the csv file to make transport quicker.</p>
+<pre class="r"><code>z_file &lt;- gzcon(url(&quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv.gz&quot;))
+raw_csv &lt;- textConnection(readLines(z_file))
+close(z_file)
+
+birthday_data &lt;- read.table(raw_csv, header = TRUE, sep = &quot;,&quot;)</code></pre>
 </div>
 
 
