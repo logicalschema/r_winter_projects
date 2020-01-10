@@ -8,20 +8,43 @@ output: html_document
 require(plyr)
 
 # Load data: Temporarily using the local file until completion
+# US Births in 1969 - 1988 
 #csv_url <- "https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv"
 csv_url <- "Birthdays.csv"
 birthday_data <- read.table(file = csv_url, header = TRUE, sep = ",")
 head(birthday_data)
 ```
-
+<br>
 1. Use the summary function to gain an overview of the data set. Then display the mean and median for at least two attributes.
 
 ```{r}
 summary(birthday_data)
 ```
 
+###### The mean and median for the month attribute
+```{r}
+mean(birthday_data$month)
+median(birthday_data$month)
+```
+
+###### The mean and median for the births attribute
+```{r}
+mean(birthday_data$births)
+median(birthday_data$births)
+```
+<br>
 2. Create a new data frame with a subset of the columns and rows. Make sure to rename it.
+```{r}
+subset_birthdays = subset(birthday_data, state == "NY" & year >= 1981 & year <= 1988, select=c(state, year, month, births))
+
+tail(subset_birthdays)
+```
+
+<br>
 3. Create new column names for the new data frame.
+
+
+
 4. Use the summary function to create an overview of your new data frame. The print the mean and median for the same two attributes. Please compare.
 5. For at least 3 values in a column please rename so that every value in that column is renamed. For example, suppose I have 20 values of the letter “e” in one column. Rename those values so that all 20 would show as “excellent”.
 6. Display enough rows to see examples of all of steps 1-5 above.

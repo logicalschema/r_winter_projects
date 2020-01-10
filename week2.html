@@ -371,7 +371,8 @@ summary {
 
 <pre class="r"><code>require(plyr)</code></pre>
 <pre><code>## Loading required package: plyr</code></pre>
-<pre class="r"><code># Load data
+<pre class="r"><code># Load data: Temporarily using the local file until completion
+# US Births in 1969 - 1988 
 #csv_url &lt;- &quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv&quot;
 csv_url &lt;- &quot;Birthdays.csv&quot;
 birthday_data &lt;- read.table(file = csv_url, header = TRUE, sep = &quot;,&quot;)
@@ -403,14 +404,38 @@ head(birthday_data)</code></pre>
 ##  3rd Qu.:23.00   1969-10-01:    66   Thurs:53291   3rd Qu.: 223  
 ##  Max.   :31.00   1969-12-01:    65   Tues :53238   Max.   :1779  
 ##                  (Other)   :372464   Wed  :53298</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Create a new data frame with a subset of the columns and rows. Make sure to rename it.</li>
+<div id="the-mean-and-median-for-the-month-attribute" class="section level6">
+<h6>The mean and median for the month attribute</h6>
+<pre class="r"><code>mean(birthday_data$month)</code></pre>
+<pre><code>## [1] 6.522394</code></pre>
+<pre class="r"><code>median(birthday_data$month)</code></pre>
+<pre><code>## [1] 7</code></pre>
+</div>
+<div id="the-mean-and-median-for-the-births-attribute" class="section level6">
+<h6>The mean and median for the births attribute</h6>
+<pre class="r"><code>mean(birthday_data$births)</code></pre>
+<pre><code>## [1] 189.0409</code></pre>
+<pre class="r"><code>median(birthday_data$births)</code></pre>
+<pre><code>## [1] 129</code></pre>
+<p><br> 2. Create a new data frame with a subset of the columns and rows. Make sure to rename it.</p>
+<pre class="r"><code>subset_birthdays = subset(birthday_data, state == &quot;NY&quot; &amp; year &gt;= 1981 &amp; year &lt;= 1988, select=c(state, year, month, births))
+
+tail(subset_birthdays)</code></pre>
+<pre><code>##        state year month births
+## 372593    NY 1988    12    653
+## 372644    NY 1988    12    837
+## 372695    NY 1988    12    787
+## 372746    NY 1988    12    817
+## 372797    NY 1988    12    852
+## 372848    NY 1988    12    656</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li>Create new column names for the new data frame.</li>
 <li>Use the summary function to create an overview of your new data frame. The print the mean and median for the same two attributes. Please compare.</li>
 <li>For at least 3 values in a column please rename so that every value in that column is renamed. For example, suppose I have 20 values of the letter “e” in one column. Rename those values so that all 20 would show as “excellent”.</li>
 <li>Display enough rows to see examples of all of steps 1-5 above.</li>
 <li>BONUS – place the original .csv in a github file and have R read from the link. This will be a very useful skill as you progress in your data science education and career.</li>
 </ol>
+</div>
 
 
 
