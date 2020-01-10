@@ -373,7 +373,15 @@ summary {
 <pre><code>## Loading required package: plyr</code></pre>
 <pre class="r"><code># Load data
 csv_url &lt;- &quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv&quot;
-birthday_data &lt;- read.table(file = csv_url, header = TRUE, sep = &quot;,&quot;)</code></pre>
+birthday_data &lt;- read.table(file = csv_url, header = TRUE, sep = &quot;,&quot;)
+head(birthday_data)</code></pre>
+<pre><code>##   X state year month day       date wday births
+## 1 1    AK 1969     1   1 1969-01-01  Wed     14
+## 2 2    AL 1969     1   1 1969-01-01  Wed    174
+## 3 3    AR 1969     1   1 1969-01-01  Wed     78
+## 4 4    AZ 1969     1   1 1969-01-01  Wed     84
+## 5 5    CA 1969     1   1 1969-01-01  Wed    824
+## 6 6    CO 1969     1   1 1969-01-01  Wed    100</code></pre>
 
 
 
