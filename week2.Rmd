@@ -22,16 +22,18 @@ head(birthday_data, 5)
 summary(birthday_data)
 ```
 
-###### The mean and median for the month attribute
+###### The mean and median for the year attribute
 ```{r}
-mean(birthday_data$month)
-median(birthday_data$month)
+mean(birthday_data$year)
+median(birthday_data$year)
 ```
 
 ###### The mean and median for the births attribute
 ```{r}
 mean(birthday_data$births)
 median(birthday_data$births)
+
+plot(birthday_data[,c("births", "year")])
 ```
 <br>
 2. Create a new data frame with a subset of the columns and rows. Make sure to rename it.
@@ -54,14 +56,14 @@ head(subset_birthdays, 5)
 
 ``` {r}
 summary(subset_birthdays)
-mean(subset_birthdays$M)
-median(subset_birthdays$M)
+mean(subset_birthdays$Y)
+median(subset_birthdays$Y)
 mean(subset_birthdays$BIRTHS)
 median(subset_birthdays$BIRTHS)
-
+plot(subset_birthdays[,c("BIRTHS", "Y")])
 ```
 
-The month attribute did not vary. However, the births attribute varied widely from the original data set. The original had a mean: 189 and median: 129. The subset data taken for New York between 1981 and 1988 produced a mean: 709 and median: 711.
+The births attribute varied widely from the original data set. The original had a mean: 189 and median: 129. The subset data taken for New York between 1981 and 1988 produced a mean: 709 and median: 711.
 
 <br>
 5. For at least 3 values in a column please rename so that every value in that column is renamed. For example, suppose I have 20 values of the letter “e” in one column. Rename those values so that all 20 would show as “excellent”.
