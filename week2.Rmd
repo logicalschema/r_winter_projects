@@ -7,8 +7,6 @@ output:
     df_print: paged
 ---
 
-
-
 [Week 2 Assignment on RPubs](http://rpubs.com/logicalschema/winter_week2 "Sung's Week 2 Assignment Rpubs")
 <br>
 [Rmd on Github](https://github.com/logicalschema/r_winter_projects/blob/master/week2.Rmd "Sung's week 2 Assignment Github")
