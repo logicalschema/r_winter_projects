@@ -4,7 +4,14 @@ author: "Sung Lee"
 date: "1/9/2020"
 output: html_document
 ---
-[linked phrase](http://rpubs.com/logicalschema/winter_week2)
+<img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/header_logo.png" />
+<br>
+
+<br>
+[Week 2 Assignment on RPubs](http://rpubs.com/logicalschema/winter_week2 "Sung's Week 2 Assignment Rpubs")
+<br>
+[Rmd on Github](https://github.com/logicalschema/r_winter_projects/blob/master/week2.Rmd "Sung's week 2 Assignment Github")
+
 ``` {r}
 require(plyr)
 
