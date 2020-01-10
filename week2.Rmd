@@ -4,6 +4,7 @@ author: "Sung Lee"
 date: "1/9/2020"
 output: html_document
 ---
+[linked phrase](http://rpubs.com/logicalschema/winter_week2)
 ``` {r}
 require(plyr)
 
