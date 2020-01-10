@@ -376,11 +376,13 @@ summary {
 #csv_url &lt;- &quot;https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/Birthdays.csv&quot;
 csv_url &lt;- &quot;Birthdays.csv&quot;
 birthday_data &lt;- read.table(file = csv_url, header = TRUE, sep = &quot;,&quot;)
-head(birthday_data, 3)</code></pre>
+head(birthday_data, 5)</code></pre>
 <pre><code>##   X state year month day       date wday births
 ## 1 1    AK 1969     1   1 1969-01-01  Wed     14
 ## 2 2    AL 1969     1   1 1969-01-01  Wed    174
-## 3 3    AR 1969     1   1 1969-01-01  Wed     78</code></pre>
+## 3 3    AR 1969     1   1 1969-01-01  Wed     78
+## 4 4    AZ 1969     1   1 1969-01-01  Wed     84
+## 5 5    CA 1969     1   1 1969-01-01  Wed    824</code></pre>
 <p><br> 1. Use the summary function to gain an overview of the data set. Then display the mean and median for at least two attributes.</p>
 <pre class="r"><code>summary(birthday_data)</code></pre>
 <pre><code>##        X              state             year          month       
@@ -413,30 +415,35 @@ head(birthday_data, 3)</code></pre>
 <pre class="r"><code>median(birthday_data$births)</code></pre>
 <pre><code>## [1] 129</code></pre>
 <p><br> 2. Create a new data frame with a subset of the columns and rows. Make sure to rename it.</p>
-<pre class="r"><code>subset_birthdays = subset(birthday_data, state == &quot;NY&quot; &amp; year &gt;= 1981 &amp; year &lt;= 1988, select=c(year, month, births))
+<pre class="r"><code>subset_birthdays = subset(birthday_data, state == &quot;NY&quot; &amp; year &gt;= 1981 &amp; year &lt;= 1988, select=c(state, year, month, births))
 
-tail(subset_birthdays, 3)</code></pre>
-<pre><code>##        year month births
-## 372746 1988    12    817
-## 372797 1988    12    852
-## 372848 1988    12    656</code></pre>
+tail(subset_birthdays, 5)</code></pre>
+<pre><code>##        state year month births
+## 372644    NY 1988    12    837
+## 372695    NY 1988    12    787
+## 372746    NY 1988    12    817
+## 372797    NY 1988    12    852
+## 372848    NY 1988    12    656</code></pre>
 <p><br> 3. Create new column names for the new data frame.</p>
-<pre class="r"><code>subset_birthdays &lt;- rename(subset_birthdays, c(&quot;year&quot; = &quot;Y&quot;, &quot;month&quot; = &quot;M&quot;, &quot;births&quot; = &quot;BIRTHS&quot;))
+<pre class="r"><code>subset_birthdays &lt;- rename(subset_birthdays, c(&quot;state&quot; = &quot;STATE&quot;, &quot;year&quot; = &quot;Y&quot;, &quot;month&quot; = &quot;M&quot;, &quot;births&quot; = &quot;BIRTHS&quot;))
 
-head(subset_birthdays, 3)</code></pre>
-<pre><code>##           Y M BIRTHS
-## 223877 1981 1    527
-## 223928 1981 1    614
-## 223979 1981 1    609</code></pre>
+head(subset_birthdays, 5)</code></pre>
+<pre><code>##        STATE    Y M BIRTHS
+## 223877    NY 1981 1    527
+## 223928    NY 1981 1    614
+## 223979    NY 1981 1    609
+## 224030    NY 1981 1    547
+## 224081    NY 1981 1    637</code></pre>
 <p><br> 4. Use the summary function to create an overview of your new data frame. Then print the mean and median for the same two attributes. Please compare.</p>
 <pre class="r"><code>summary(subset_birthdays)</code></pre>
-<pre><code>##        Y              M              BIRTHS     
-##  Min.   :1981   Min.   : 1.000   Min.   :509.0  
-##  1st Qu.:1983   1st Qu.: 4.000   1st Qu.:650.0  
-##  Median :1984   Median : 7.000   Median :711.0  
-##  Mean   :1985   Mean   : 6.523   Mean   :709.1  
-##  3rd Qu.:1987   3rd Qu.:10.000   3rd Qu.:768.0  
-##  Max.   :1988   Max.   :12.000   Max.   :933.0</code></pre>
+<pre><code>##      STATE            Y              M              BIRTHS     
+##  NY     :2922   Min.   :1981   Min.   : 1.000   Min.   :509.0  
+##  AK     :   0   1st Qu.:1983   1st Qu.: 4.000   1st Qu.:650.0  
+##  AL     :   0   Median :1984   Median : 7.000   Median :711.0  
+##  AR     :   0   Mean   :1985   Mean   : 6.523   Mean   :709.1  
+##  AZ     :   0   3rd Qu.:1987   3rd Qu.:10.000   3rd Qu.:768.0  
+##  CA     :   0   Max.   :1988   Max.   :12.000   Max.   :933.0  
+##  (Other):   0</code></pre>
 <pre class="r"><code>mean(subset_birthdays$M)</code></pre>
 <pre><code>## [1] 6.52293</code></pre>
 <pre class="r"><code>median(subset_birthdays$M)</code></pre>
