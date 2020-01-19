@@ -3,9 +3,8 @@ title: "Sung Lee Final Project"
 author: "Sung Lee"
 date: "1/17/2020"
 output: 
- html_document:
-  df_print: 
-   paged
+ html_document: 
+ df_print: paged
 ---
 [Final Assignment on RPubs](http://rpubs.com/logicalschema/r_final_project "Sung's Final Project Rpubs")
 <br>
@@ -23,7 +22,22 @@ summary(gssData)
 ```
 
 Conclusions: Some conclusions from the data: 1) the percentage of women who participated in the study was `r round((16385/(12482 + 16385))* 100, 2)` percent and 2) the number of participants who identified as native born was 26,224 in comparison with no's: 2,556 and NA's: 87.
-<br>
+<br><br>
 2. Data wrangling: Please perform some basic transformations. They will need to make sense but could include column renaming, creating a subset of the data, replacing values, or creating new columns with derived data (for example – if it makes sense you could sum two columns together)
 
+```{r}
+#Renaming the columns for the data set
+gssData <- rename(gssData, c("year" = "Year", "gender" = "Gender", "educGroup" = "EducationGroup", "vocab" = "VocabularyScore", "age" = "Age", "educ" = "Education", "ageGroup" = "AgeGroup", "nativeBorn" = "NativeBorn"))
 
+#Creating a subset for the data for participants between 21 and 50 years of age
+subset_gssData <- subset(gssData, Age >= 21 & Age <= 50)
+head(subset_gssData, 5)
+```
+3. Graphics: Please make sure to display at least one scatter plot, box plot and histogram. Don’t be limited to this. Please explore the many other options in R packages such as ggplot2.
+
+```{r}
+
+# scatter plot
+plot(gssData[,c(7)])
+
+```
