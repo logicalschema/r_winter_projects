@@ -1641,42 +1641,30 @@ summary {
 
 
 <p><a href="http://rpubs.com/logicalschema/r_final_project" title="Sung&#39;s Final Project Rpubs">Final Assignment on RPubs</a> <br> <a href="https://github.com/logicalschema/r_winter_projects/blob/master/finalproject.Rmd" title="Sung&#39;s Final Project Assignment Github">Rmd on Github</a></p>
+<ol style="list-style-type: decimal">
+<li>Data Exploration: This should include summary statistics, means, medians, quartiles, or any other relevant information about the data set. Please include some conclusions in the R Markdown text.</li>
+</ol>
 <pre class="r"><code>require(plyr)</code></pre>
 <pre><code>## Loading required package: plyr</code></pre>
-<pre class="r"><code>farsData &lt;- read.csv(&#39;FARS.csv&#39;,header=TRUE, sep=&quot;,&quot;)
-summary(farsData)</code></pre>
-<pre><code>##        X              caseid           state            age        
-##  Min.   :1998   12:243:1 :     9   Min.   : 1.00   Min.   :  0.00  
-##  1st Qu.:2001   17:691:1 :     9   1st Qu.:12.00   1st Qu.: 19.00  
-##  Median :2004   53:101:1 :     9   Median :27.00   Median : 27.00  
-##  Mean   :2004   6:1512:1 :     9   Mean   :27.23   Mean   : 52.55  
-##  3rd Qu.:2007   12:2221:1:     8   3rd Qu.:42.00   3rd Qu.: 49.00  
-##  Max.   :2011   12:248:1 :     8   Max.   :56.00   Max.   :999.00  
-##                 (Other)  :151106                                   
-##      airbag          injury        restraint           sex       
-##  Min.   : 0.00   Min.   :0.000   Min.   : 0.000   Min.   :1.000  
-##  1st Qu.: 1.00   1st Qu.:1.000   1st Qu.: 0.000   1st Qu.:1.000  
-##  Median :29.00   Median :3.000   Median : 3.000   Median :2.000  
-##  Mean   :22.72   Mean   :2.529   Mean   : 8.962   Mean   :1.553  
-##  3rd Qu.:30.00   3rd Qu.:4.000   3rd Qu.: 3.000   3rd Qu.:2.000  
-##  Max.   :99.00   Max.   :8.000   Max.   :99.000   Max.   :9.000  
-##                                                                  
-##     inimpact        modelyr      airbagAvail     airbagDeploy     Restraint    
-##  Min.   : 0.00   Min.   :1924   NA-code: 8485   NA-code:21305   NA-code:10535  
-##  1st Qu.: 4.00   1st Qu.:1992   no     :55729   no     :86228   no     :46452  
-##  Median :11.00   Median :1996   yes    :86944   yes    :43625   yes    :94171  
-##  Mean   :10.07   Mean   :2006                                                  
-##  3rd Qu.:12.00   3rd Qu.:2000                                                  
-##  Max.   :99.00   Max.   :9999                                                  
-##                                                                                
-##     D_injury    D_airbagAvail   D_airbagDeploy   D_Restraint         year     
-##  Min.   :0.00   NA-code: 7232   NA-code:21096   NA-code:10505   Min.   :1998  
-##  1st Qu.:1.00   no     :45087   no     :78480   no     :44629   1st Qu.:2000  
-##  Median :3.00   yes    :98839   yes    :51582   yes    :96024   Median :2003  
-##  Mean   :2.47                                                   Mean   :2004  
-##  3rd Qu.:4.00                                                   3rd Qu.:2006  
-##  Max.   :8.00                                                   Max.   :2010  
-## </code></pre>
+<pre class="r"><code>gssData &lt;- read.csv(&#39;GSSvocab.csv&#39;,header=TRUE, sep=&quot;,&quot;)
+summary(gssData)</code></pre>
+<pre><code>##        X             year         gender      nativeBorn    ageGroup   
+##  Min.   :1978   Min.   :1978   female:16385   no  : 2556   18-29:5849  
+##  1st Qu.:1988   1st Qu.:1988   male  :12482   yes :26224   30-39:6248  
+##  Median :1996   Median :1996                  NA&#39;s:   87   40-49:5246  
+##  Mean   :1998   Mean   :1997                               50-59:4329  
+##  3rd Qu.:2008   3rd Qu.:2008                               60+  :7101  
+##  Max.   :2017   Max.   :2016                               NA&#39;s :  94  
+##                                                                        
+##      educGroup        vocab             age             educ      
+##  &lt;12 yrs  :5924   Min.   : 0.000   Min.   :18.00   Min.   : 0.00  
+##  &gt;16 yrs  :3154   1st Qu.: 5.000   1st Qu.:32.00   1st Qu.:12.00  
+##  12 yrs   :8612   Median : 6.000   Median :44.00   Median :12.00  
+##  13-15 yrs:7182   Mean   : 5.998   Mean   :46.18   Mean   :13.04  
+##  16 yrs   :3914   3rd Qu.: 7.000   3rd Qu.:59.00   3rd Qu.:15.00  
+##  NA&#39;s     :  81   Max.   :10.000   Max.   :89.00   Max.   :20.00  
+##                   NA&#39;s   :1348     NA&#39;s   :94      NA&#39;s   :81</code></pre>
+<p>Conclusions: Some conclusions from the data: 1) the percentage of women who participated in the study was 56.76 percent and 2) the number of participants who identified as native born was 26,224 in comparison with no’s: 2,556 and NA’s: 87. <br> 2. Data wrangling: Please perform some basic transformations. They will need to make sense but could include column renaming, creating a subset of the data, replacing values, or creating new columns with derived data (for example – if it makes sense you could sum two columns together)</p>
 
 
 

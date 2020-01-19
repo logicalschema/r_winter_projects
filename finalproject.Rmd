@@ -11,12 +11,19 @@ output:
 <br>
 [Rmd on Github](https://github.com/logicalschema/r_winter_projects/blob/master/finalproject.Rmd "Sung's Final Project Assignment Github")
 
+
+1. Data Exploration: This should include summary statistics, means, medians, quartiles, or any other relevant information about the data set. Please include some conclusions in the R Markdown text.
+
 ``` {r}
 require(plyr)
 
-farsData <- read.csv('FARS.csv',header=TRUE, sep=",")
-summary(farsData)
-
+gssData <- read.csv('GSSvocab.csv',header=TRUE, sep=",")
+summary(gssData)
 
 ```
+
+Conclusions: Some conclusions from the data: 1) the percentage of women who participated in the study was `r round((16385/(12482 + 16385))* 100, 2)` percent and 2) the number of participants who identified as native born was 26,224 in comparison with no's: 2,556 and NA's: 87.
+<br>
+2. Data wrangling: Please perform some basic transformations. They will need to make sense but could include column renaming, creating a subset of the data, replacing values, or creating new columns with derived data (for example – if it makes sense you could sum two columns together)
+
 
