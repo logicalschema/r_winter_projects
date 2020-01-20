@@ -17,10 +17,11 @@ output:
 require(plyr)
 require(ggplot2)
 
+z_file <- gzcon(url("https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/GSSvocab.csv.gz"))
+raw_csv <- textConnection(readLines(z_file))
+close(z_file)
 
-gssData <- read.csv('GSSvocab.csv',header=TRUE, sep=",")
-summary(gssData)
-
+gssData <- read.table(raw_csv, header = TRUE, sep = ",")
 ```
 
 Conclusions: Some conclusions from the data: 1) the percentage of women who participated in the study was `r round((16385/(12482 + 16385))* 100, 2)` percent and 2) the number of participants who identified as native born was 26,224 in comparison with no's: 2,556 and NA's: 87.
@@ -48,5 +49,28 @@ boxplot(Education~VocabularyScore,data=gssData, main="Education and Vocabulary S
 
 ggplot(gssData, aes(x=VocabularyScore, color=NativeBorn)) + geom_histogram(fill="white", bins=10)
 
+```
+
+<br>
+4. Meaningful question for analysis: Please state at the beginning a meaningful question for analysis. Use the first three steps and anything else that would be helpful to answer the question you are posing from the data set you chose. Please write a brief conclusion paragraph in R markdown at the end.
+
+My original question was do natives do better than non-natives in vocabulary for exams? From the analysis, those who identified as non-native faired slightly better on a vocabulary proficiency exam. I do not have access to the study's vocabulary exam, but the analysis disproved my original presuppositions for my question.
+
+<br>
+5. BONUS – place the original .csv in a github file and have R read from the link. This will be a very
+useful skill as you progress in your data science education and career.
+
+The following code is used to download a zipped copy of the data file and read it.
+
+``` {r eval=FALSE}
+z_file <- gzcon(url("https://raw.githubusercontent.com/logicalschema/r_winter_projects/master/GSSvocab.csv.gz"))
+raw_csv <- textConnection(readLines(z_file))
+close(z_file)
+
+gssData <- read.table(raw_csv, header = TRUE, sep = ",")
 
 ```
+
+
+
+
