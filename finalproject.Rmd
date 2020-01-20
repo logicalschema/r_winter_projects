@@ -15,6 +15,8 @@ output:
 
 ``` {r}
 require(plyr)
+require(ggplot2)
+
 
 gssData <- read.csv('GSSvocab.csv',header=TRUE, sep=",")
 summary(gssData)
@@ -36,8 +38,15 @@ head(subset_gssData, 5)
 3. Graphics: Please make sure to display at least one scatter plot, box plot and histogram. Don’t be limited to this. Please explore the many other options in R packages such as ggplot2.
 
 ```{r}
-
 # scatter plot
-plot(gssData[,c(7)])
+plot(gssData$Education,gssData$VocabularyScore, xlab='Years of Education',ylab='Vocabulary Score' ,main='Years of Education vs. Vocabulary Score', col='blue')
+
+# box plot
+boxplot(Education~VocabularyScore,data=gssData, main="Education and Vocabulary Score", xlab="Education", ylab="Vocabulary Score") 
+
+#histogram
+
+ggplot(gssData, aes(x=VocabularyScore, color=NativeBorn)) + geom_histogram(fill="white", bins=10)
+
 
 ```
